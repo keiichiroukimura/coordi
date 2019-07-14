@@ -16,10 +16,18 @@
  */
  header {
   z-index: 10;
-  height:100px;
+  height:200px;
 	background-color: hsl(41, 80%, 90%);
 	width: 100%;
 	position:fixed;
   top:0;
   border-bottom: 1px solid rgba(252, 247, 232, 0.125);
+  background-image: url("../images/hiroba.png");
+}
+
+a {
+  color: #000000;
+}
+a:hover {
+  color: grey;
 }

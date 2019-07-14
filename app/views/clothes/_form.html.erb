@@ -1,7 +1,7 @@
 <div class = "clothes_index">
     <%= form_with(model: clothe, local: true) do |form| %>
       <div class="clothes_image">
-        <%= form.file_field :image_first %>
+        <%= form.file_field :image_first%>
         <br>
         <%= form.file_field :image_second %>
         <br>
@@ -22,7 +22,9 @@
         <br>
         <%= form.text_area :content, class: 'form-control',id: 'new_content'%>
       </div>
-      <%= form.submit %>
+      <br>
+      <%= form.submit "確認", class: "btn btn-light" %>
     <% end %>
-  <%= link_to t('view.back'), clothes_path ,class: "btn btn-default" %>
+    <br>
+  <%= link_to t('view.back'), clothes_path ,class: "btn btn-light" %>
 </div>

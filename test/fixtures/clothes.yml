@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image_first: MyText
+  image_second: MyText
+  image_third: MyText
+  gender: 1
+  height: 1
+  content: MyText
+
+two:
+  image_first: MyText
+  image_second: MyText
+  image_third: MyText
+  gender: 1
+  height: 1
+  content: MyText

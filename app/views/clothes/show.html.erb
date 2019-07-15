@@ -1,0 +1,33 @@
+
+<div class="container">
+  <div class="row">
+      <div class="card_index" style="width: 20rem;">
+      <p style="float: left;">ここに注目！</p>
+      <% @clothe.labels.each do |a| %>
+        <%= a.content%>
+      <% end %>
+      <br>
+      <%= @clothe.height %>
+        <div class="card-body" >
+          <%= image_tag @clothe.image_first.to_s, id: "index_image", :size => "320x320" %>
+        </div>
+        <% if @clothe.image_second.present?%>
+          <div class="card-body" >
+            <%= image_tag @clothe.image_second.to_s, id: "index_image", :size => "320x320" %>
+          </div>
+        <% end %>
+        <% if @clothe.image_second.present?%>
+          <div class="card-body" >
+            <%= image_tag @clothe.image_third.to_s, id: "index_image", :size => "320x320"%>
+          </div>
+        <% end %>
+        <div class="clothe_show" style="height: 7rem;">  
+          <%= "コメント" %>  
+          <div id = "content">
+            <%= simple_format(@clothe.content) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

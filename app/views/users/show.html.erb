@@ -1,5 +1,40 @@
 <div class="show">
   <div class="form-group">
-    <%= @user.name %>
+    <h5><%= "#{@user.name}さんの投稿一覧" %></h5>
+  </div>
+  <% if logged_in? && @user.id == current_user.id  %>
+    <%= link_to 'プロフィール編集', edit_user_path, class:"btn btn-default" %>
+  <% end %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @clothes.each do |clothe| %>
+    <div class= "col-md-4", style="height: 35rem">
+      <div class="card_user" style="width: 20rem;">
+        <div class="card-header">
+            <div id = "index_name"> 
+              投稿者: <%= clothe.user.name %>
+            </div>
+        </div>
+        
+        <div class="card-body" >
+          <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "320x320" %>
+          <%= clothe.height %>
+          <br>
+          <% clothe.labels.each do |a| %>
+            ここに注目！ : <%= a.content%>
+          <% end %>
+        </div>
+        
+        <div class="card-footer" style="height: 7rem;">  
+          <%= "コメント" %>  
+          <div id = "content">
+            <%= simple_format(clothe.content) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>

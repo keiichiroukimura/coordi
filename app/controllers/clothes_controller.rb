@@ -22,7 +22,21 @@ class ClothesController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit;end
 
+  def update
+    @clothe.user_id == current_user.id
+    if @clothe.update(clothe_params)
+      redirect_to clothes_path
+    else
+      render 'edit'
+    end
+  end 
+  
+  def show
+  end	
+  
   private
 
   def clothe_params
@@ -31,6 +45,6 @@ class ClothesController < ApplicationController
   end
   
   def set_clothe
-    @clothe = Cothe.find(params[:id])
+    @clothe = Clothe.find(params[:id])
   end
 end

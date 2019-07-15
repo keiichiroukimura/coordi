@@ -2,9 +2,6 @@
   <div class="form-group">
     <h5><%= "#{@user.name}さんの投稿一覧" %></h5>
   </div>
-  <% if logged_in? && @user.id == current_user.id  %>
-    <%= link_to 'プロフィール編集', edit_user_path, class:"btn btn-default" %>
-  <% end %>
 </div>
 
 <div class="container">
@@ -12,13 +9,12 @@
     <% @clothes.each do |clothe| %>
     <div class= "col-md-4", style="height: 35rem">
       <div class="card_user" style="width: 20rem;">
-        <div class="card-header">
-            <div id = "index_name"> 
-              投稿者: <%= clothe.user.name %>
-            </div>
-        </div>
         
-        <div class="card-body" >
+        <div class="card-body", style="height: 26rem;">
+          <% if logged_in? && clothe.user_id == current_user.id %>  
+            <%= link_to 'Edit', edit_clothe_path(clothe.id), class: "btn btn-default", style: "color: red; float: right;" %>
+            <%= link_to 'Destroy',clothe_path(clothe.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default", style: "color: red; float: right;"%>
+          <% end %>
           <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "320x320" %>
           <%= clothe.height %>
           <br>
@@ -27,7 +23,7 @@
           <% end %>
         </div>
         
-        <div class="card-footer" style="height: 7rem;">  
+        <div class="card-footer" style="height: 5rem;">  
           <%= "コメント" %>  
           <div id = "content">
             <%= simple_format(clothe.content) %>

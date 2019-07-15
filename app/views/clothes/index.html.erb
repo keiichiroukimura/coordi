@@ -13,8 +13,9 @@
           <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "320x320" %>
           <%= clothe.height %>
           <br>
+          <p style="float: left;">ここに注目！</p>
           <% clothe.labels.each do |a| %>
-            ここに注目！ : <%= a.content%>
+            <%= a.content%>
           <% end %>
         </div>
         

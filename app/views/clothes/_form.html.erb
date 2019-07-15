@@ -29,5 +29,5 @@
       <%= form.submit "確認", class: "btn btn-light" %>
     <% end %>
     <br>
-  <%= link_to t('view.back'), clothes_path ,class: "btn btn-light" %>
+  <%= link_to t('view.back'), user_path(id: @clothe.user_id),class: "btn btn-light" %>
 </div>

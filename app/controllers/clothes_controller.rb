@@ -33,10 +33,16 @@ class ClothesController < ApplicationController
       render 'edit'
     end
   end 
-  
+
   def show
   end	
   
+  def destroy
+    @clothe.destroy
+    flash[:danger] = '投稿を削除しました。'
+    redirect_to user_path(@clothe.user_id)
+  end
+
   private
 
   def clothe_params

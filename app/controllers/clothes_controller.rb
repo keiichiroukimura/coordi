@@ -1,4 +1,5 @@
 class ClothesController < ApplicationController
+  before_action :set_clothe, only: [:show, :edit, :update, :destroy]
   def new
     if params[:back]
       @clothe = Clothe.new(post_params)
@@ -26,7 +27,10 @@ class ClothesController < ApplicationController
 
   def clothe_params
     params.require(:clothe).permit(:image_first, :image_second, :image_third, 
-                                   :image_cache, :gender, :height, :content, :user_id)
+                                   :image_cache, :gender, :height, :content, :user_id, label_ids: [])
   end
-
+  
+  def set_clothe
+    @clothe = Cothe.find(params[:id])
+  end
 end

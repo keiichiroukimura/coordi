@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_110222) do
+ActiveRecord::Schema.define(version: 2019_07_14_230948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clothe_labels", force: :cascade do |t|
+    t.text "content"
+    t.bigint "clothe_id"
+    t.bigint "label_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clothe_id"], name: "index_clothe_labels_on_clothe_id"
+    t.index ["label_id"], name: "index_clothe_labels_on_label_id"
+  end
 
   create_table "clothes", force: :cascade do |t|
     t.text "image_first"
@@ -28,6 +38,12 @@ ActiveRecord::Schema.define(version: 2019_07_14_110222) do
     t.index ["user_id"], name: "index_clothes_on_user_id"
   end
 
+  create_table "labels", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -38,5 +54,7 @@ ActiveRecord::Schema.define(version: 2019_07_14_110222) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "clothe_labels", "clothes"
+  add_foreign_key "clothe_labels", "labels"
   add_foreign_key "clothes", "users"
 end

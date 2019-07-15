@@ -13,7 +13,9 @@
           <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "320x320" %>
           <%= clothe.height %>
           <br>
-          
+          <% clothe.labels.each do |a| %>
+            注目アイテム！ : <%= a.content%>
+          <% end %>
         </div>
         
         <div class="card-footer" style="height: 7rem;">  

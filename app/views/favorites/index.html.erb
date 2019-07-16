@@ -1,29 +1,27 @@
 <div class="container">
   <div class="row">
-    <% @clothes.each do |clothe| %>
+    <% @favorites.each do |favorite| %>
     <div class= "col-md-4 col-xs-12", style="height: 35rem">
       <div class="card_index" style="width: 20rem;">
         <div class="card-header">
             <div id = "index_name"> 
-              投稿者: <%= clothe.user.name %>
+              投稿者: <%= favorite.clothe.user.name %>
             </div>
         </div>
-        <%= link_to "詳細", clothe_path(clothe.id), class: "btn btn-default", style:"float: right;" %>
-        <div id="favorites_buttons_<%= clothe.id %>">
-          <%= render partial: 'favorites/favorite', locals: { clothe: clothe, favorites: @favorites} %>
-        </div>
-        <div class="card-body" >
-          <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "310x310" %>
-          <%= clothe.height %>
+        <%= link_to "詳細", clothe_path(favorite.clothe.id), class: "btn btn-default", style:"float: right;" %>
+        
+        <div class="card-body", style:"height: 40rem;" >
+          <%= image_tag favorite.clothe.image_first.to_s, id: "index_image", :size => "310x310" %>
+          <%= favorite.clothe.height %>
           <br>
           <p style="float: left;">ここに注目！</p>
-          <% clothe.labels.each do |a| %>
+          <% favorite.clothe.labels.each do |a| %>
             <label style="background-color: pink; height: 22px; border-radius: 15%;"><%= a.content %></label>
           <% end %>
         </div>
         <div class="card-footer" style="height: 5rem;">  
             <%= "コメント" %> 
-            <%= simple_format(clothe.content) %>
+            <%= simple_format(favorite.clothe.content) %>
         </div>
       </div>
     </div>

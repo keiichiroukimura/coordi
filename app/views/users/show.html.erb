@@ -15,7 +15,7 @@
             <%= link_to 'Edit', edit_clothe_path(clothe.id), class: "btn btn-default", style: "color: red; float: right;" %>
             <%= link_to 'Destroy',clothe_path(clothe.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default", style: "color: red; float: right;"%>
           <% end %>
-          <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "320x320" %>
+          <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "310x310" %>
           <%= clothe.height %>
           <br>
           <% clothe.labels.each do |a| %>

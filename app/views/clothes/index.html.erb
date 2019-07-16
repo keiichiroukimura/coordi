@@ -10,7 +10,7 @@
         </div>
         <%= link_to "詳細", clothe_path(clothe.id), class: "btn btn-default", style:"float: right;" %>
         <div class="card-body" >
-          <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "320x320" %>
+          <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "310x310" %>
           <%= clothe.height %>
           
           <br>
@@ -20,7 +20,7 @@
           <% end %>
         </div>
         
-        <div class="card-footer" style="height: 7rem;">  
+        <div class="card-footer" style="height: 5rem;">  
           <%= "コメント" %>  
           <div id = "content">
             <%= simple_format(clothe.content) %>

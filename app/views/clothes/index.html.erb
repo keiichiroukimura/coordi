@@ -9,7 +9,7 @@
             </div>
         </div>
         <%= link_to "詳細", clothe_path(clothe.id), class: "btn btn-default", style:"float: right;" %>
-<div id="favoritess_buttons_<%= clothe.id %>">
+<div id="favorites_buttons_<%= clothe.id %>">
  <%= render partial: 'favorites/favorite', locals: { clothe: clothe, favorites: @favorites} %>
 </div>
         <div class="card-body" >

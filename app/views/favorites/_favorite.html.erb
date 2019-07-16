@@ -3,22 +3,24 @@
   <% unless clothe.favorite_user(current_user.id).blank? %>
     <%= link_to clothe_favorite_path(clothe_id: clothe.id ,id: clothe.favorites[0].id), method: :delete, remote: true do %>
       <div class="vertical_like">
-        <i class="material-icons red-text">favorite</i>
-        <span class="red-text">
-          <%= clothe.favorite_count %>
-        </span>
+        <i class="fas fa-heart"></i>
+          <span class="red-text">             
+            <%= clothe.favorite_count %>
+          </span>
       </div>
     <% end %>
+
   <% else %>
     <%= link_to clothe_favorites_path(clothe.id), method: :post, remote: true do %>
       <div class="vertical_like">
-        <i class="material-icons grey-text text-darken-2">favorite_border</i>
-        <span class="grey-text text-darken-2">
-          <%= clothe.favorite_count %>
-        </span>
+        <i class="far fa-heart"></i>
+          <span class="grey-text text-darken-2">
+            <%= clothe.favorite_count %>
+          </span>
       </div>
     <% end %>
   <% end %>
 
-
 <% end %>
+
+  

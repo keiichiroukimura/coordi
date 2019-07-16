@@ -10,6 +10,7 @@ class ClothesController < ApplicationController
 
   def index
     @clothes = Clothe.all.order(created_at: "DESC") 
+    @favorite = Favorite.find_by(user_id: current_user.id, clothe_id: params[:id]) if logged_in?
   end
 
   def create

@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :clothes do
-    resources :favorites, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy, :index]
   end
 end

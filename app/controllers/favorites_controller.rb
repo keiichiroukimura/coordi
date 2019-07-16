@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  before_action :set_clothe
+  before_action :set_clothe, only: [:destroy]
   def index 
     @user = current_user
     @favorites = Favorite.where(user_id: @user.id).all

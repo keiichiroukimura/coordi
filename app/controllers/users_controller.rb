@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @clothes = Clothe.where(user_id: @user.id).all.order(created_at: 'DESC')
   end
   
   private

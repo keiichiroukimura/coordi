@@ -1,0 +1,41 @@
+
+  <p style=" margin-top: 260px;">ここに注目！</p>
+      <% @clothe.labels.each do |a| %>
+        <%= a.content%>
+      <% end %>
+      <br>
+      <%= @clothe.height %>
+      <br>
+      <%= "コメント" %>  
+        <div id = "content">
+          <%= simple_format(@clothe.content) %>
+        </div>
+      <div class="container">
+        <div class="row">
+      
+        <div class="col-md-4" >
+          <div class="card_clothe_show">
+            <%= image_tag @clothe.image_first.to_s, :size => "320x320" %>
+          </div>
+        </div>
+        <% if @clothe.image_second.present?%>
+          <div class="col-md-4" >
+            <div class="card_clothe_show">
+              <%= image_tag @clothe.image_second.to_s,  :size => "320x320" %>
+            </div>
+          </div>
+        <% end %>
+        <% if @clothe.image_third.present?%>
+          <div class="col-md-4" >
+            <div class="card_clothe_show">
+              <%= image_tag @clothe.image_third.to_s,  :size => "320x320"%>
+            </div>
+          </div>
+        <% end %>
+        <div class="clothe_show" style="height: 7rem;">  
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

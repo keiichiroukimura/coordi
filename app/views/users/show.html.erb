@@ -1,5 +1,36 @@
 <div class="show">
   <div class="form-group">
-    <%= @user.name %>
+    <h5><%= "#{@user.name}さんの投稿一覧" %></h5>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @clothes.each do |clothe| %>
+    <div class= "col-md-4", style="height: 35rem">
+      <div class="card_user" style="width: 20rem;">
+        
+        <div class="card-body", style="height: 26rem;">
+          <% if logged_in? && clothe.user_id == current_user.id %>  
+            <%= link_to 'Edit', edit_clothe_path(clothe.id), class: "btn btn-default", style: "color: red; float: right;" %>
+            <%= link_to 'Destroy',clothe_path(clothe.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default", style: "color: red; float: right;"%>
+          <% end %>
+          <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "310x310" %>
+          <%= clothe.height %>
+          <br>
+          <% clothe.labels.each do |a| %>
+            ここに注目！ : <%= a.content%>
+          <% end %>
+        </div>
+        
+        <div class="card-footer" style="height: 5rem;">  
+          <%= "コメント" %>  
+          <div id = "content">
+            <%= simple_format(clothe.content) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>

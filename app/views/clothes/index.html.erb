@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <% @clothes.each do |clothe| %>
-    <div class= "col-md-4", style="height: 35rem">
+    <div class= "col-md-4 col-xs-12", style="height: 35rem">
       <div class="card_index" style="width: 20rem;">
         <div class="card-header">
             <div id = "index_name"> 
@@ -9,26 +9,21 @@
             </div>
         </div>
         <%= link_to "詳細", clothe_path(clothe.id), class: "btn btn-default", style:"float: right;" %>
-<div id="favorites_buttons_<%= clothe.id %>">
- <%= render partial: 'favorites/favorite', locals: { clothe: clothe, favorites: @favorites} %>
-</div>
+        <div id="favorites_buttons_<%= clothe.id %>">
+          <%= render partial: 'favorites/favorite', locals: { clothe: clothe, favorites: @favorites} %>
+        </div>
         <div class="card-body" >
           <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "310x310" %>
           <%= clothe.height %>
-          
           <br>
           <p style="float: left;">ここに注目！</p>
           <% clothe.labels.each do |a| %>
             <%= a.content%>
           <% end %>
         </div>
-        
         <div class="card-footer" style="height: 5rem;">  
-
-          <%= "コメント" %>  
-          <div id = "content">
+            <%= "コメント" %> 
             <%= simple_format(clothe.content) %>
-          </div>
         </div>
       </div>
     </div>

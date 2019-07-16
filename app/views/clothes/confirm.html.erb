@@ -1,0 +1,33 @@
+<div id = "confirm">
+  <h1>確認画面</h1>
+    <%= form_with(model: @clothe, url: clothes_path,local: true) do |form| %>
+      <%= image_tag(@clothe.image_first.url, id: "confirm_image") %>
+      <% if @clothe.image_second.present?%>
+        <%= image_tag(@clothe.image_second.url, id: "confirm_image") %>
+      <% end %>
+      <% if @clothe.image_third.present?%>
+        <%= image_tag(@clothe.image_third.url, id: "confirm_image") %>
+      <% end %>
+      <%= form.hidden_field :image_first_cache %>
+      <%= form.hidden_field :image_second_cache %>
+      <%= form.hidden_field :image_third_cache %>
+      <br>
+      <%= @clothe.gender %>
+      <%= form.hidden_field :gender %>
+      <%= @clothe.height %>
+      <%= form.hidden_field :height %>
+      <%= form.label :コメント %>
+      <%= form.hidden_field :content %>
+    <div class = "well well-sm check">
+      <pre><%= simple_format(@clothe.content) %></pre>
+    </div>
+      <br>
+      <%= form.submit "投稿する",class: 'btn btn-default' %>
+    <% end %>
+
+    <%= form_with(model:@clothe, url:new_clothe_path, local:true, method:"get") do |form| %>
+      <%= form.hidden_field :image_first_cache %>
+      <%= form.hidden_field :content %>
+      <%= form.submit "戻る", name: "back", class: 'btn btn-default '%>
+    <% end %>
+</end>

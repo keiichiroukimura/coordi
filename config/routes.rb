@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :clothes do
     resources :favorites, only: [:create, :destroy, :index]
+    collection do
+      post :confirm
+    end
   end
 end

@@ -1,2 +1,33 @@
-<%= render 'form', clothe: @clothe %>
+<div class = "clothes_index">
+    <%= form_with(model: @clothe, local: true) do |form| %>
+      <div class="clothes_image">
+        <%= form.file_field :image_first%>
+        <br>
+        <%= form.file_field :image_second %>
+        <br>
+        <%= form.file_field :image_third %>
+      </div>
+      <div class="clothes_gender">
+        <%= form.label :gender %>
+        <br>
+        <%= form.select :gender, Clothe.genders.keys, class: 'form-control'%>
+      </div>
+      <div class="clothes_height">
+        <%= form.label :height %>
+        <br>
+        <%= form.select :height, Clothe.heights.keys, class: 'form-control'%>
+      </div>
+      <div class="clothes_content">
+        <%= form.label :content %>
+        <br>
+        <%= form.text_area :content, class: 'form-control',id: 'new_content'%>
+      </div>
+        <%= form.collection_check_boxes(:label_ids, Label.all, :id, :content) do |b|%>
+          <%= b.label { b.check_box + b.text }%>
+        <% end %>
+      <br>
+      <%= form.submit "投稿", class: "btn btn-light" %>
+    <% end %>
+    <br>
+</div>
 <%= link_to t('view.back'), user_path(id: @clothe.user_id),class: "btn btn-light" %>

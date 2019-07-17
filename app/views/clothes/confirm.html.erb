@@ -1,0 +1,64 @@
+<div id="confirm" style="margin-top: 300px; text-align: center;">
+  <h3 style="text-align: center;">確認画面</h3>
+    <%= form_with(model: @clothe, url: clothes_path,local: true) do |form| %>
+      身長:<%= @clothe.height %>
+      <br>
+    <%= form.label :コメント %>
+      <div class = "well well-sm check">
+        <pre><%= simple_format(@clothe.content) %></pre>
+      </div>
+    <%= form.collection_check_boxes(:label_ids, Label.all, :id, :content) do |b|%>
+      <%= b.label { b.check_box + b.text }%>
+    <% end %>
+      <br>
+      <%= form.submit "投稿する",class: 'btn btn-light' %>
+        <%= form_with(model:@clothe, url:new_clothe_path, local:true, method:"get") do |form| %>
+          <%= form.hidden_field :image_first_cache %>
+          <% if @clothe.image_second.present?%>
+            <%= form.hidden_field :image_second_cache %>
+          <% end %>
+          <% if @clothe.image_third.present?%>
+            <%= form.hidden_field :image_third_cache %>
+          <% end %>
+          <%= form.hidden_field :content %>
+          <br>
+          <%= form.submit "戻る", name: "back", class: 'btn btn-light', style: 'margin-top: 3px;'%>
+        <% end %>   
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4" >
+            <div class="card_clothe_show">
+              <%= image_tag @clothe.image_first.to_s, :size => "320x320" %>
+            </div>
+          </div>
+          <% if @clothe.image_second.present?%>
+            <div class="col-md-4" >
+              <div class="card_clothe_show">
+                <%= image_tag @clothe.image_second.to_s,  :size => "320x320" %>
+              </div>
+            </div>
+          <% end %>
+          <% if @clothe.image_third.present?%>
+            <div class="col-md-4" >
+              <div class="card_clothe_show">
+                <%= image_tag @clothe.image_third.to_s,  :size => "320x320"%>
+              </div>
+            </div>
+          <% end %>
+          
+          <%= form.hidden_field :image_first_cache %>
+          <%= form.hidden_field :image_second_cache %>
+          <%= form.hidden_field :image_third_cache %>
+          <%= form.hidden_field :height %>
+          <%= form.hidden_field :content %>
+
+          
+            <br>
+          
+    <% end %>
+             
+          </div>
+        </div>
+      </div>
+  

@@ -2,7 +2,7 @@ class ClothesController < ApplicationController
   before_action :set_clothe, only: [:show, :edit, :update, :destroy]
   def new
     if params[:back]
-      @clothe = Clothe.new(post_params)
+      @clothe = Clothe.new(clothe_params)
     else
       @clothe = Clothe.new
     end
@@ -11,6 +11,12 @@ class ClothesController < ApplicationController
   def index
     @clothes = Clothe.all.order(created_at: "DESC") 
     @favorite = Favorite.find_by(user_id: current_user.id, clothe_id: params[:id]) if logged_in?
+  end
+  
+  def confirm
+    @clothe = Clothe.new(clothe_params)
+    @clothe.user_id = current_user.id
+    render :new if @clothe.invalid?
   end
 
   def create
@@ -48,7 +54,8 @@ class ClothesController < ApplicationController
 
   def clothe_params
     params.require(:clothe).permit(:image_first, :image_second, :image_third, 
-                                   :image_cache, :gender, :height, :content, :user_id, label_ids: [])
+                                   :image_first_cache, :image_second_cache, :image_third_cache,
+                                   :gender, :height, :content, :user_id, label_ids: [])
   end
   
   def set_clothe

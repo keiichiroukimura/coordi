@@ -54,7 +54,8 @@ class ClothesController < ApplicationController
 
   def clothe_params
     params.require(:clothe).permit(:image_first, :image_second, :image_third, 
-                                   :image_cache, :gender, :height, :content, :user_id, label_ids: [])
+                                   :image_first_cache, :image_second_cache, :image_third_cache,
+                                   :gender, :height, :content, :user_id, label_ids: [])
   end
   
   def set_clothe

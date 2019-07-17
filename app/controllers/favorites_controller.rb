@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_action :set_clothe, only: [:destroy]
   def index 
     @user = current_user
-    @favorites = Favorite.where(user_id: @user.id).all
+    @favorites = Favorite.where(user_id: @user.id).all.order(created_at: "DESC")
 	end
   
   # def create

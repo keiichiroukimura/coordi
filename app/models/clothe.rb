@@ -10,6 +10,14 @@ class Clothe < ApplicationRecord
   mount_uploader :image_second, ImageUploader
   mount_uploader :image_third, ImageUploader
   
+  scope :search_height, ->(height) {
+    return if height.blank? 
+    where(height: height)
+  }
+  scope :search_gender, ->(gender) {
+    return if gender.blank?
+    where(gender: gender)
+  }
   def favorite_user(user_id)
     favorites.find_by(user_id: user_id)
   end

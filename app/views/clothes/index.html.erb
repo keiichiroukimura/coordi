@@ -1,3 +1,16 @@
+<div id="search", style="margin-top: 250px;">
+  <%= form_with(model: @clothe, method: :get, local: true, url: clothes_path) do |form| %>
+    <%= form.label :gender %>
+    <%= form.select :gender, Clothe.genders.keys,include_blank: true,class: 'form-control' %>
+    <br>
+    <%= form.label :height %>
+    <%= form.select :height, Clothe.heights.keys,include_blank: true,class: 'form-control' %>
+    <br>
+    <%= form.label :label, 'ラベル名' %>
+    <%= form.select :label_id, Label.all.map {|t| t.content} ,include_blank: true, class: 'form-control' %>
+    <%= form.submit "search", class: "btn-default"%>
+  <% end %>
+</div>
 <div class="container">
   <div class="row">
     <% @clothes.each do |clothe| %>

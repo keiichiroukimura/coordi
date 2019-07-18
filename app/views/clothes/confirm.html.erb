@@ -19,6 +19,7 @@
       <%= form.hidden_field :image_third_cache %>
       <%= form.hidden_field :height %>
       <%= form.hidden_field :content %>
+      <%= form.hidden_field :gender %>
     <% end %>
     <%= form_with(model:@clothe, url:new_clothe_path, local:true, method: "get") do |form| %>
       <%= form.hidden_field :image_first_cache %>

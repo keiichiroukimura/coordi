@@ -10,14 +10,32 @@ class Clothe < ApplicationRecord
   mount_uploader :image_second, ImageUploader
   mount_uploader :image_third, ImageUploader
   
-  scope :search_height, ->(height) {
-    return if height.blank? 
-    where(height: height)
+  scope :search_gender, ->(params) {
+    return if params.blank?
+    where(gender: params)
+    
   }
-  scope :search_gender, ->(gender) {
-    return if gender.blank?
-    where(gender: gender)
+  
+  scope :search_height, ->(params) {
+    return if params.blank? 
+    where(height: params)
   }
+  
+  scope :search_label, ->(params) { 
+    return if params.blank?
+      joins(:labels).where(labels: {id: params}) 
+      
+  }
+  
+  scope :search_clothes, -> (params) do
+    if params[:search].present?
+       search_gender(params[:gender])
+      .search_height(params[:height])
+      .search_label(params[:label_id])
+    end
+  end
+
+  
   def favorite_user(user_id)
     favorites.find_by(user_id: user_id)
   end

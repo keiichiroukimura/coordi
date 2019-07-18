@@ -13,7 +13,7 @@
         <%= b.label { b.check_box + b.text }%>
       <% end %>
       <br>
-      <%= form.submit "投稿する",class: 'btn btn-light' %>
+      <%= form.submit t('view.post'),class: 'btn btn-light' %>
       <%= form.hidden_field :image_first_cache %>
       <%= form.hidden_field :image_second_cache %>
       <%= form.hidden_field :image_third_cache %>

@@ -9,17 +9,17 @@
         <%= form.file_field :image_third %>
       </div>
       <div class="clothes_gender">
-        <%= form.label :gender %>
+        <%= form.label :gender, t('view.gender') %>
         <br>
         <%= form.select :gender, Clothe.genders.keys, class: 'form-control'%>
       </div>
       <div class="clothes_height">
-        <%= form.label :height %>
+        <%= form.label :height , t('view.height') %>
         <br>
         <%= form.select :height, Clothe.heights.keys, class: 'form-control'%>
       </div>
       <div class="clothes_content">
-        <%= form.label :content %>
+        <%= form.label :content, t('view.content') %>
         <br>
         <%= form.text_area :content, class: 'form-control',id: 'new_content'%>
       </div>
@@ -27,7 +27,7 @@
           <%= b.label { b.check_box + b.text }%>
         <% end %>
       <br>
-      <%= form.submit "確認", class: "btn btn-light" %>
+      <%= form.submit t('view.confirm'), class: "btn btn-light" %>
     <% end %>
     <br>
 </div>

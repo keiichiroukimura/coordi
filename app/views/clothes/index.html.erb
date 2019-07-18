@@ -15,7 +15,7 @@
 
 <div class="container" >
   <div class="row">
-    <% @searched_clothes.each do |clothe| %>
+    <% @paged_clothes.each do |clothe| %>
     <div class= "col-md-4 col-xs-12", style="height: 35rem">
     <div class="card_index" style="width: 20rem;">
         <div class="card-header">
@@ -43,5 +43,9 @@
       </div>
     </div>
     <% end %>
+  </div>
+  <div class="page", style="margin-top: 50px; margin-left: -100px; margin-bottom: 20px;">
+    <%= paginate @paged_clothes %>
+    <%= page_entries_info @paged_clothes %>
   </div>
 </div>

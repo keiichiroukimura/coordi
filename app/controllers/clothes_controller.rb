@@ -1,5 +1,6 @@
 class ClothesController < ApplicationController
   before_action :set_clothe, only: [:show, :edit, :update, :destroy]
+  PER = 12
   def new
     if params[:back]
       @clothe = Clothe.new(clothe_params)
@@ -11,6 +12,7 @@ class ClothesController < ApplicationController
   def index
     @clothes = Clothe.all.order(created_at: "DESC") 
     @searched_clothes = @clothes.search_clothes(params)
+    @paged_clothes = @searched_clothes.page(params[:page]).per(PER)
     @favorite = Favorite.find_by(user_id: current_user.id, clothe_id: params[:id]) if logged_in?
     
   end

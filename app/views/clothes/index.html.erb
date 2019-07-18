@@ -1,6 +1,20 @@
+<div id="search", style="margin-top: 250px;">
+  <%= form_with(model: @clothe, method: :get, local: true, url: clothes_path) do |form| %>
+    <%= form.label :gender %>
+    <%= form.select :gender, Clothe.genders.keys,include_blank: true,class: 'form-control' %>
+    <br>
+    <%= form.label :height %>
+    <%= form.select :height, Clothe.heights.keys,include_blank: true,class: 'form-control' %>
+    <br>
+    <%= form.label :label, 'ラベル名' %>
+    <%= form.select :label_id, Label.all.map {|t| t.content} ,include_blank: true, class: 'form-control' %>
+    <%= form.hidden_field :search, value: 'true' %>
+    <%= form.submit "検索", class: "btn-default"%>
+  <% end %>
+</div>
 <div class="container">
   <div class="row">
-    <% @clothes.each do |clothe| %>
+    <% @searched_clothes.each do |clothe| %>
     <div class= "col-md-4 col-xs-12", style="height: 35rem">
       <div class="card_index" style="width: 20rem;">
         <div class="card-header">

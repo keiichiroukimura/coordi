@@ -23,7 +23,7 @@ class Clothe < ApplicationRecord
   
   scope :search_label, ->(params) { 
     return if params.blank?
-      joins(:labels).where(labels: {id: params}) 
+      joins(:labels).where(labels: {content: params}) 
       
   }
   

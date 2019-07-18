@@ -1,20 +1,10 @@
 class FavoritesController < ApplicationController
-  before_action :set_clothe, only: [:destroy]
+  before_action :set_clothe, only: [:create, :destroy]
   def index 
     @user = current_user
     @favorites = Favorite.where(user_id: @user.id).all.order(created_at: "DESC")
 	end
   
-  # def create
-  #   favorite = current_user.favorites.create(post_id: params[:post_id])
-  #   @clothe.reload
-  # end
-
-  # def destroy
-  #   favorite = current_user.favorites.find_by(id: params[:id]).destroy
-  #   @clothe.reload
-  # end
-
   def create
     @favorite = Favorite.create(user_id: current_user.id, clothe_id: params[:clothe_id])
     @favorites = Favorite.where(clothe_id: params[:clothe_id])

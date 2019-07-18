@@ -22,7 +22,8 @@
 	position:fixed;
   top:0;
   border-bottom: 1px solid rgba(252, 247, 232, 0.125);
-  background-image: url("../images/hiroba.png");
+  background-image: image-url("hiroba.jpg");
+  background-position: center;
 }
 
 a {
@@ -30,4 +31,8 @@ a {
 }
 a:hover {
   color: grey;
+}
+
+.index_image {
+  object-fit: cover;
 }

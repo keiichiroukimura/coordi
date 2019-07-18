@@ -11,11 +11,12 @@
         <%= link_to "詳細", clothe_path(favorite.clothe.id), class: "btn btn-default", style:"float: right;" %>
         
         <div class="card-body", style:"height: 40rem;" >
-          <%= image_tag favorite.clothe.image_first.to_s, id: "index_image", :size => "310x310" %>
+          <%= image_tag favorite.clothe.image_first.to_s, class: "index_image", :size => "310x310" %>
           <%= favorite.clothe.height %>
           <br>
+          <p style="float: left;">ここに注目！ :</p>
           <% favorite.clothe.labels.each do |a| %>
-            ここに注目！ : <label style="background-color: pink; height: 22px; border-radius: 15%;"><%= a.content %></label>
+            <label style="background-color: pink; height: 22px; border-radius: 15%;"><%= a.content %></label>
           <% end %>
         </div>
         <div class="card-footer" style="height: 5rem;">  

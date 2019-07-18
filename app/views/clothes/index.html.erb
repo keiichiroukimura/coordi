@@ -16,7 +16,7 @@
   <div class="row">
     <% @searched_clothes.each do |clothe| %>
     <div class= "col-md-4 col-xs-12", style="height: 35rem">
-      <div class="card_index" style="width: 20rem;">
+    <div class="card_index" style="width: 20rem;">
         <div class="card-header">
             <div id = "index_name"> 
               投稿者: <%= clothe.user.name %>
@@ -27,11 +27,12 @@
           <%= render partial: 'favorites/favorite', locals: { clothe: clothe, favorites: @favorites} %>
         </div>
         <div class="card-body" >
-          <%= image_tag clothe.image_first.to_s, id: "index_image", :size => "310x310" %>
+          <%= image_tag clothe.image_first.to_s, class: "index_image", :size => "310x310" %>
           <%= clothe.height %>
           <br>
+          <p style="float: left;">ここに注目！ :</p>
           <% clothe.labels.each do |a| %>
-            ここに注目！ : <label style="background-color: pink; height: 22px; border-radius: 15%;"><%= a.content %></label>
+             <label style="background-color: pink; height: 22px; border-radius: 15%;"><%= a.content %></label>
           <% end %>
         </div>
         <div class="card-footer" style="height: 5rem;">  

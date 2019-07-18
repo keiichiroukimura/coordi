@@ -1,5 +1,5 @@
 
-  <p style=" margin-top: 260px;">ここに注目！</p>
+  <p style="float: left;">ここに注目！ :</p>
       <% @clothe.labels.each do |a| %>
         <%= a.content%>
       <% end %>
@@ -15,20 +15,20 @@
       
         <div class="col-md-4" >
           <div class="card_clothe_show">
-            <%= image_tag @clothe.image_first.to_s, :size => "320x320" %>
+            <%= image_tag @clothe.image_first.to_s, :size => "320x320" ,style: "object-fit: cover;"%>
           </div>
         </div>
         <% if @clothe.image_second.present?%>
           <div class="col-md-4" >
             <div class="card_clothe_show">
-              <%= image_tag @clothe.image_second.to_s,  :size => "320x320" %>
+              <%= image_tag @clothe.image_second.to_s,  :size => "320x320", style: "object-fit: cover;" %>
             </div>
           </div>
         <% end %>
         <% if @clothe.image_third.present?%>
           <div class="col-md-4" >
             <div class="card_clothe_show">
-              <%= image_tag @clothe.image_third.to_s,  :size => "320x320"%>
+              <%= image_tag @clothe.image_third.to_s,  :size => "320x320", style: "object-fit: cover;" %>
             </div>
           </div>
         <% end %>

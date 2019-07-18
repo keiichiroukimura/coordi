@@ -1,4 +1,4 @@
-<div id="confirm" style="margin-top: 300px; text-align: center;">
+<div class="confirm" style="margin-top: 300px; text-align: center;">
   <h3 style="text-align: center;">確認画面</h3>
     <%= form_with(model: @clothe, url: clothes_path,local: true) do |form| %>
         身長: <%= @clothe.height %>
@@ -33,7 +33,7 @@
       <br>
       <%= form.submit "戻る", name: "back", class: 'btn btn-light', style: 'margin-top: 3px;'%>
     <% end %>     
-</div>
+    <br>
       <div class="container">
         <div class="row">
           <div class="col-md-4" >
@@ -55,8 +55,6 @@
               </div>
             </div>
           <% end %>
-          
-          
       </div>
     </div>
 </div>

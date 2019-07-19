@@ -33,9 +33,12 @@
           <%= image_tag clothe.image_first.to_s, class: "index_image", :size => "310x310" %>
           <%= clothe.height %>
           <br>
+          <% if clothe.labels.present? %>
+          シーン別:
             <% clothe.labels.each do |a| %>
-              シーン別: <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
+               <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
             <% end %>
+          <% end %>
         </div>
         <div class="card-footer" style="height: 5rem;">  
             <%= "コメント" %> 

@@ -16,8 +16,11 @@
           <%= image_tag favorite.clothe.image_first.to_s, class: "index_image", :size => "310x310" %>
           <%= favorite.clothe.height %>
           <br>
-          <% clothe.labels.each do |a| %>
-            シーン別: <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
+          <% if favorite.clothe.labels.present? %>
+          シーン別:
+            <% favorite.clothe.labels.each do |a| %>
+               <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
+            <% end %>
           <% end %>
         </div>
         <div class="card-footer" style="height: 5rem;">  

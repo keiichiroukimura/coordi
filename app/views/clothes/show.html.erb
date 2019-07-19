@@ -1,6 +1,9 @@
 <div class="clothe_show", style="margin-top: 260px;">
-  <% @clothe.labels.each do |a| %>
-    シーン別: <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
+  <<% if clothe.labels.present? %>
+  シーン別:
+    <% clothe.labels.each do |a| %>
+       <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
+    <% end %>
   <% end %>
       <br>
       <%= @clothe.height %>

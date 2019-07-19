@@ -3,7 +3,7 @@
   <% unless clothe.favorite_user(current_user.id).blank? %>
     <%= link_to clothe_favorite_path(clothe_id: clothe.id ,id: clothe.favorites[0].id), method: :delete, remote: true do %>
       <div class="vertical_like">
-        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart", style="color: red;"></i>
           <span class="red-text">             
             <%= clothe.favorite_count %>
           </span>

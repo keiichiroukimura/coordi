@@ -1,4 +1,6 @@
 class Clothe < ApplicationRecord
+  validates :image_first,  presence: true
+
   belongs_to :user
   has_many :clothe_labels, dependent: :destroy
   has_many :labels, through: :clothe_labels, source: :label

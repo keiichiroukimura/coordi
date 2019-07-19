@@ -1,43 +1,43 @@
-<div class="clothe_show", style="margin-top: 260px;">
-  <% if @clothe.labels.present? %>
-  シーン別:
-    <% @clothe.labels.each do |a| %>
-       <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
+<h4 style="text-align: center; margin-top: 300px;">投稿詳細</h4>
+  <div class="clothe_show" >
+    <% if @clothe.labels.present? %>
+    <p style="font-size: 20px;">シーン別:
+      <% @clothe.labels.each do |a| %>
+        <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %>,</label>
+      <% end %>
     <% end %>
-  <% end %>
-      <br>
-      <%= @clothe.height %>
-      <br>
-      <%= "コメント" %>  
-        <div id = "content">
-          <%= simple_format(@clothe.content) %>
-        </div>
+        身長: <%= @clothe.height %>,
+        <%= @clothe.gender %>
+    </p>
+        <%= "コメント" %>  
+          <div class="box16 line-break">
+            <p><%= simple_format(@clothe.content) %></p>
+          </div>
+  </div>
       <div class="container">
         <div class="row">
-      
-        <div class="col-md-4" >
-          <div class="card_clothe_show">
-            <%= image_tag @clothe.image_first.to_s, :size => "320x320" ,style: "object-fit: cover;"%>
-          </div>
-        </div>
-        <% if @clothe.image_second.present?%>
           <div class="col-md-4" >
             <div class="card_clothe_show">
-              <%= image_tag @clothe.image_second.to_s,  :size => "320x320", style: "object-fit: cover;" %>
+              <%= image_tag @clothe.image_first.to_s, :size => "320x320" ,style: "object-fit: cover;"%>
             </div>
           </div>
-        <% end %>
-        <% if @clothe.image_third.present?%>
-          <div class="col-md-4" >
-            <div class="card_clothe_show">
-              <%= image_tag @clothe.image_third.to_s,  :size => "320x320", style: "object-fit: cover;" %>
+          <% if @clothe.image_second.present?%>
+            <div class="col-md-4" >
+              <div class="card_clothe_show">
+                <%= image_tag @clothe.image_second.to_s,  :size => "320x320", style: "object-fit: cover;" %>
+              </div>
             </div>
+          <% end %>
+          <% if @clothe.image_third.present?%>
+            <div class="col-md-4" >
+              <div class="card_clothe_show">
+                <%= image_tag @clothe.image_third.to_s,  :size => "320x320", style: "object-fit: cover;" %>
+              </div>
+            </div>
+          <% end %>
+          <div class="clothe_show" style="height: 7rem;">  
+            
           </div>
-        <% end %>
-        <div class="clothe_show" style="height: 7rem;">  
-          
         </div>
       </div>
-    </div>
   </div>
-</div>

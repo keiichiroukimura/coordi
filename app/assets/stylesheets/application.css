@@ -38,8 +38,8 @@ a:hover {
 }
 
 .page-link {
-  position: relative;
-  display: block;
+  /* position: relative;
+  display: block; */
   padding: .5rem .75rem;
   margin-left: -1px;
   line-height: 1.25;
@@ -49,7 +49,7 @@ a:hover {
 }
 
 .page-item.active .page-link {
-  z-index: 1;
+  z-index: 9999;
   color: black;
   background-color: white;
   border-color: black;

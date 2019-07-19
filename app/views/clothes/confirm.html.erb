@@ -38,20 +38,20 @@
         <div class="row">
           <div class="col-md-4" >
             <div class="card_clothe_show">
-              <%= image_tag @clothe.image_first.to_s, :size => "320x320" %>
+              <%= image_tag @clothe.image_first.to_s, class: "index_image", :size => "320x320" %>
             </div>
           </div>
           <% if @clothe.image_second.present?%>
             <div class="col-md-4" >
               <div class="card_clothe_show">
-                <%= image_tag @clothe.image_second.to_s,  :size => "320x320" %>
+                <%= image_tag @clothe.image_second.to_s, class: "index_image", :size => "320x320" %>
               </div>
             </div>
           <% end %>
           <% if @clothe.image_third.present?%>
             <div class="col-md-4" >
               <div class="card_clothe_show">
-                <%= image_tag @clothe.image_third.to_s,  :size => "320x320"%>
+                <%= image_tag @clothe.image_third.to_s, class: "index_image", :size => "320x320"%>
               </div>
             </div>
           <% end %>

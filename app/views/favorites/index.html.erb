@@ -7,11 +7,10 @@
       <div class="card_index" style="width: 20rem;">
         <div class="card-header">
             <div id = "index_name"> 
-              投稿者: <%= favorite.clothe.user.name %>
+              投稿者: <%= link_to "#{favorite.clothe.user.name}", user_path(id: favorite.clothe.user_id) %>
             </div>
         </div>
-        <%= link_to "詳細", clothe_path(favorite.clothe.id), class: "btn btn-default", style:"float: right;" %>
-        
+        <%= link_to "詳細", clothe_path(favorite.clothe.id), class: "btn btn-default", style:"float: left;" %>
         <div class="card-body", style:"height: 40rem;" >
           <%= image_tag favorite.clothe.image_first.to_s, class: "index_image", :size => "310x310" %>
           <%= favorite.clothe.height %>

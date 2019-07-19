@@ -1,7 +1,7 @@
 <div class="clothe_show", style="margin-top: 260px;">
-  <<% if clothe.labels.present? %>
+  <% if @clothe.labels.present? %>
   シーン別:
-    <% clothe.labels.each do |a| %>
+    <% @clothe.labels.each do |a| %>
        <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
     <% end %>
   <% end %>

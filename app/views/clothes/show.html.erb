@@ -1,8 +1,7 @@
 <div class="clothe_show", style="margin-top: 260px;">
-  <p style="float: left;">ここに注目！ :</p>
-      <% @clothe.labels.each do |a| %>
-        <%= a.content%>
-      <% end %>
+  <% @clothe.labels.each do |a| %>
+    シーン別: <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
+  <% end %>
       <br>
       <%= @clothe.height %>
       <br>

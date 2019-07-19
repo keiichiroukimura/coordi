@@ -10,6 +10,14 @@
               投稿者: <%= link_to "#{favorite.clothe.user.name}", user_path(id: favorite.clothe.user_id) %>
             </div>
         </div>
+        <%if favorite.clothe.favorite_count.present? %>
+          <div class="vertical_like">
+            <i class="fas fa-heart", style="color: red; float: left; margin-top: 4px;"></i>
+              <span class="red-text">             
+                <%= favorite.clothe.favorite_count %>
+              </span>
+          </div>
+        <% end %>
         <%= link_to "詳細", clothe_path(favorite.clothe.id), class: "btn btn-default", style:"float: left;" %>
         <div class="card-body", style:"height: 40rem;" >
           <%= image_tag favorite.clothe.image_first.to_s, class: "index_image", :size => "310x310" %>

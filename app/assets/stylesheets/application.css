@@ -54,3 +54,14 @@ a:hover {
   background-color: white;
   border-color: black;
 }
+
+.card-footer {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-body {
+  padding: 5px;
+  height: 25rem; 
+} 

@@ -48,26 +48,6 @@
 }
 
 // 詳細画面のコメントレイアウト
-.box {
-  background-color: white;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 2px solid #aaa;
-  width: 220px;
-}
-
-.line-break {
-  word-wrap: break-word;
-}
-
-.box.line-break {
-  text-align: center;
-  margin: auto;
-  width: 400px;
-  margin-bottom: 10px;
-  border-radius: 20%;
-}
-
 .box16{
   padding: 0.5em 1em;
   margin: 2em 0;

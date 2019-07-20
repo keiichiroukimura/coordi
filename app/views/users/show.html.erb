@@ -16,7 +16,7 @@
                 </span>
             </div>
           <% end %>
-          <%= link_to "詳細", clothe_path(clothe.id), class: "btn btn-default", style:"float: left; margin-left: 7px;" %>
+          <%= link_to "詳細", clothe_path(clothe.id), class: "btn btn-default" %>
           <% if logged_in? && clothe.user_id == current_user.id %>  
             <%= link_to 'Edit', edit_clothe_path(clothe.id), class: "btn btn-default", style: "color: blue; float: right;" %>
             <%= link_to 'Destroy',clothe_path(clothe.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default", style: "color: red; float: right;"%>

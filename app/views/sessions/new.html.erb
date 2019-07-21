@@ -3,12 +3,12 @@
   <h5>Log in</h5>
   <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
-    <%= f.label :email %>
+    <%= f.label :メールアドレス %>
     <%= f.email_field :email,class: 'form-control' %>
     
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <%= f.password_field :password,class: 'form-control' %>
     <br>
-    <%= f.submit "Log in", class: 'btn btn-light'%>
+    <%= f.submit "ログイン", class: 'btn btn-light'%>
   <% end %>
 </section>

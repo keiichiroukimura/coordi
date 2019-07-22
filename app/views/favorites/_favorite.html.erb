@@ -1,7 +1,7 @@
 <% if logged_in? %>
 
   <% unless clothe.favorite_user(current_user.id).blank? %>
-    <%= link_to clothe_favorite_path(clothe_id: clothe.id ,id: clothe.favorites[0].id), method: :delete, remote: true do %>
+    <%= link_to clothe_favorite_path(clothe_id: clothe.id ,id: clothe.favorites[0].id),id: "unfavorite_button", method: :delete, remote: true do %>
       <div class="vertical_like">
         <i class="fas fa-heart", style="color: red;"></i>
           <span class="red-text">             
@@ -11,7 +11,7 @@
     <% end %>
 
   <% else %>
-    <%= link_to clothe_favorites_path(clothe.id), method: :post, remote: true do %>
+    <%= link_to clothe_favorites_path(clothe.id), id: "favorite_button",method: :post, remote: true do %>
       <div class="vertical_like">
         <i class="far fa-heart"></i>
           <span class="grey-text text-darken-2">

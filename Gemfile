@@ -66,6 +66,7 @@ group :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem "database_cleaner"
+  gem 'launchy'
   
 end
 

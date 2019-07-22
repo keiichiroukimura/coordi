@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "ユーザー管理機能", type: :system, js: true do
+RSpec.describe "ユーザー管理機能", type: :system do
   before do
   FactoryBot.create(:user)
   end
@@ -18,7 +18,7 @@ RSpec.describe "ユーザー管理機能", type: :system, js: true do
       click_on "アカウント作成"
       expect(page).to have_content '投稿作成' 
     end
-    it '新規作成画面で名称を入力しなかった時、エラーとなる' do
+    it 'ユーザー登録画面で名称を入力しなかった時、エラーとなる' do
       fill_in '名前', with: ''
       click_button 'アカウント作成'
       within '#error_explanation' do

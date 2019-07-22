@@ -61,11 +61,7 @@ RSpec.configure do |config|
   #参考サイトhttps://qiita.com/jnchito/items/c7e6e7abf83598a6516d
   config.before(:each) do |example|
     if example.metadata[:type] == :system
-      if example.metadata[:js]
-        driven_by :selenium_chrome_headless, screen_size: [1400, 1400]
-      else
-        driven_by :rack_test
-      end
+      driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
     end
   end
 end

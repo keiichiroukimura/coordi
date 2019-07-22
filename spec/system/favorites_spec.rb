@@ -11,7 +11,7 @@ RSpec.describe "気に入り機能", type: :system do
     fill_in 'session_password', with: '111111'
     click_on "ログイン"
   end
-  it 'いいねボタン押下時のカウント数の増減' do
+  it 'いいねボタン押下時,カウント数の増減' do
     # find('#favorite_button').click
     # expect(page).to have_selector
     # expect(Favorite.count).to eq 1
@@ -24,5 +24,9 @@ RSpec.describe "気に入り機能", type: :system do
       sleep 0.5
     }.to change { Favorite.count }.by(-1)
   end
-  
+  it 'いいねボタンを押した投稿がお気に入り一覧に表示されている' do
+    page.first("#favorite_button").click
+    click_on "いいね一覧"
+    expect(page).to have_content 'テストB'
+  end
 end

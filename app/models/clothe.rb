@@ -1,6 +1,8 @@
 class Clothe < ApplicationRecord
   validates :image_first,  presence: true
-
+  validates :gender,  presence: true
+  validates :height,  presence: true
+  validates :content, length: { maximum: 350 }
   belongs_to :user
   has_many :clothe_labels, dependent: :destroy
   has_many :labels, through: :clothe_labels, source: :label

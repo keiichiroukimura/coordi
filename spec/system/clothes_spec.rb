@@ -60,7 +60,7 @@ RSpec.describe "投稿", type: :system do
       click_button "確認"
       attach_file "clothe[image_second]", "#{Rails.root}/spec/fixtures/sample2.png"
       attach_file "clothe[image_third]", "#{Rails.root}/spec/fixtures/sample3.png"
-      expect(page).to have_content 'Image firstを入力してください'
+      expect(page).to have_content '1枚目の写真を入力してください'
     end
   end
   

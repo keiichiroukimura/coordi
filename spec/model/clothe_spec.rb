@@ -12,7 +12,7 @@ RSpec.describe Clothe, type: :model do
         end
       end
 
-      context "失敗を期待する" do
+      context "失敗する" do
 
         it "1枚目の画像がが空だと無効" do
           clothe = Clothe.new(image_first: "")

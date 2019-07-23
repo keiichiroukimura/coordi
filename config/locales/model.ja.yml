@@ -5,6 +5,7 @@ ja:
     attributes:
       clothe:
         content: '内容'
+        image_first: '1枚目の写真'
       user:
         title: "タイトル"
         name: "名前"

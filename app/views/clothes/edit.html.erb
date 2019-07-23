@@ -1,6 +1,6 @@
 <% if @clothe.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@clothe.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <h2><%= pluralize(@clothe.errors.count,"件") %>のエラーが発生しました。 </h2>
     <ul>
     <% @clothe.errors.full_messages.each do |message| %>
       <li><%= message %></li>

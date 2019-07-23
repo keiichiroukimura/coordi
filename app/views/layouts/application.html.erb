@@ -38,5 +38,8 @@
         <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
   <%= yield %>
+    <div id="back-to-top" style="position:fixed;right:25px;bottom:5px">
+      <a href="#"><i class="far fa-hand-pointer fa-3x"></i></a>
+    </div>
   </body>
 </html>

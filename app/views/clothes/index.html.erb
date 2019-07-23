@@ -24,27 +24,53 @@
             </div>
         </div>
         <%= link_to t('view.show'), clothe_path(clothe.id), class: "btn btn-default", style:"float: right;" %>
-        <% if logged_in? && clothe.user_id != current_user.id %>
-          <div id="favorites_buttons_<%= clothe.id %>">
-            <%= render partial: 'favorites/favorite', locals: { clothe: clothe, favorites: @favorites} %>
-          </div>
+        
+        <% if logged_in? %>
+          
+          <% if clothe.user_id != current_user.id %>
+            <div id="favorites_buttons_<%= clothe.id %>">
+              <%= render partial: 'favorites/favorite', locals: { clothe: clothe, favorites: @favorites} %>
+            </div>
+  
+          <% elsif clothe.user_id == current_user.id  %>
+        
+            <%if clothe.favorite_count.present? %>
+              <div class="vertical_like">
+                <i class="fas fa-heart", style="color: red; float: left; margin-top: 8px;"></i>
+                  <span class="red-text">             
+                    <%= clothe.favorite_count %>
+                  </span>
+              </div>
+            <% else %>
+              <div class="vertical_like">
+                <i class="fas fa-heart", style="color: red; float: left; margin-top: 8px;"></i>
+                  <span class="red-text">             
+                    <%= "0" %>
+                  </span>
+              </div>
+            <% end %>
+          
+          <% end %>
+        
         <% else %>
           <%if clothe.favorite_count.present? %>
             <div class="vertical_like">
-              <i class="fas fa-heart", style="color: red; float: left; margin-top: 8px;"></i>
-                <span class="red-text">             
-                  <%= clothe.favorite_count %>
-                </span>
+                <i class="fas fa-heart", style="color: red; float: left; margin-top: 8px;"></i>
+              <span class="red-text">             
+                <%= clothe.favorite_count %>
+              </span>
             </div>
+            <p style="float: left">loginでいいねできます。</p>
           <% else %>
+        
             <div class="vertical_like">
               <i class="fas fa-heart", style="color: red; float: left; margin-top: 8px;"></i>
-                <span class="red-text">             
-                  <%= "0" %>
-                </span>
-             </div>
+              <span class="red-text">             
+                <%= "0" %>
+              </span>
+            </div>
+            <p style="float: left">loginでいいねできます。</p>
           <% end %>
-          <p style="float: left">loginでいいねできます。</p>
         <% end %>
         <div class="card-body" >
           <%= image_tag clothe.image_first.to_s, class: "index_image", :size => "310x310" %>

@@ -11,13 +11,11 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
-//= require turbolinks
-//= require jquery
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
+//= require activestorage
+//= require turbolinks
 //= require_tree .
-
 $(function(){
 
   $("#back-to-top").hide();

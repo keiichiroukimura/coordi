@@ -20,20 +20,41 @@
     <div class="card_index" style="width: 20rem;">
         <div class="card-header">
             <div id = "index_name"> 
-              投稿者: <%= clothe.user.name %>
+              投稿者: <%= link_to "#{clothe.user.name}", user_path(id: clothe.user_id) %>
             </div>
         </div>
-        <%= link_to "詳細", clothe_path(clothe.id), class: "btn btn-default", style:"float: right;" %>
-        <div id="favorites_buttons_<%= clothe.id %>">
-          <%= render partial: 'favorites/favorite', locals: { clothe: clothe, favorites: @favorites} %>
-        </div>
+        <%= link_to t('view.show'), clothe_path(clothe.id), class: "btn btn-default", style:"float: right;" %>
+        <% if logged_in? && clothe.user_id != current_user.id %>
+          <div id="favorites_buttons_<%= clothe.id %>">
+            <%= render partial: 'favorites/favorite', locals: { clothe: clothe, favorites: @favorites} %>
+          </div>
+        <% else %>
+          <%if clothe.favorite_count.present? %>
+            <div class="vertical_like">
+              <i class="fas fa-heart", style="color: red; float: left; margin-top: 8px;"></i>
+                <span class="red-text">             
+                  <%= clothe.favorite_count %>
+                </span>
+            </div>
+          <% else %>
+            <div class="vertical_like">
+              <i class="fas fa-heart", style="color: red; float: left; margin-top: 8px;"></i>
+                <span class="red-text">             
+                  <%= "0" %>
+                </span>
+             </div>
+          <% end %>
+          <p style="float: left">loginでいいねできます。</p>
+        <% end %>
         <div class="card-body" >
           <%= image_tag clothe.image_first.to_s, class: "index_image", :size => "310x310" %>
           <%= clothe.height %>
           <br>
-          <p style="float: left;">ここに注目！ :</p>
-          <% clothe.labels.each do |a| %>
-             <label style="background-color: pink; height: 22px; border-radius: 15%;"><%= a.content %></label>
+          <% if clothe.labels.present? %>
+          シーン別:
+            <% clothe.labels.each do |a| %>
+               <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
+            <% end %>
           <% end %>
         </div>
         <div class="card-footer" style="height: 5rem;">  
@@ -44,7 +65,7 @@
     </div>
     <% end %>
   </div>
-  <div class="page", style="margin-top: 50px; margin-left: -100px; margin-bottom: 20px;">
+  <div class="page", style="margin-top: 50px; float: left; margin-bottom: 20px;">
     <%= paginate @paged_clothes %>
     <%= page_entries_info @paged_clothes %>
   </div>

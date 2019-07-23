@@ -50,14 +50,13 @@ class ClothesController < ApplicationController
   
   def destroy
     @clothe.destroy
-    flash[:danger] = '投稿を削除しました。'
-    redirect_to user_path(@clothe.user_id)
+    redirect_to user_path(@clothe.user_id), notice: '投稿を削除しました。'
   end
 
   private
 
   def clothe_params
-    params.require(:clothe).permit(:image_first, :image_second, :image_third, 
+    params.require(:clothe).permit(:id, :image_first, :image_second, :image_third, 
                                    :image_first_cache, :image_second_cache, :image_third_cache,
                                    :gender, :height, :content, :user_id, label_ids: [])
   end

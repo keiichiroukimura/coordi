@@ -1,3 +1,13 @@
+<% if @clothe.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@clothe.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <ul>
+    <% @clothe.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class = "clothes_index">
     <%= form_with(model: @clothe, local: true) do |form| %>
       <div class="clothes_image">

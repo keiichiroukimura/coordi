@@ -7,18 +7,27 @@
       <div class="card_index" style="width: 20rem;">
         <div class="card-header">
             <div id = "index_name"> 
-              投稿者: <%= favorite.clothe.user.name %>
+              投稿者: <%= link_to "#{favorite.clothe.user.name}", user_path(id: favorite.clothe.user_id) %>
             </div>
         </div>
-        <%= link_to "詳細", clothe_path(favorite.clothe.id), class: "btn btn-default", style:"float: right;" %>
-        
+        <%if favorite.clothe.favorite_count.present? %>
+          <div class="vertical_like">
+            <i class="fas fa-heart", style="color: red; float: left; margin-top: 4px;"></i>
+              <span class="red-text">             
+                <%= favorite.clothe.favorite_count %>
+              </span>
+          </div>
+        <% end %>
+        <%= link_to "詳細", clothe_path(favorite.clothe.id), class: "btn btn-default", style:"float: left;" %>
         <div class="card-body", style:"height: 40rem;" >
           <%= image_tag favorite.clothe.image_first.to_s, class: "index_image", :size => "310x310" %>
           <%= favorite.clothe.height %>
           <br>
-          <p style="float: left;">ここに注目！ :</p>
-          <% favorite.clothe.labels.each do |a| %>
-            <label style="background-color: pink; height: 22px; border-radius: 15%;"><%= a.content %></label>
+          <% if favorite.clothe.labels.present? %>
+          シーン別:
+            <% favorite.clothe.labels.each do |a| %>
+               <label style="background-color: pink; height: 22px; border-radius: 15%;"><%=  a.content %></label>
+            <% end %>
           <% end %>
         </div>
         <div class="card-footer" style="height: 5rem;">  

@@ -1,3 +1,13 @@
+<% if @clothe.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@clothe.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <ul>
+    <% @clothe.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <div class = "clothes_index">
     <%= form_with(model: @clothe, local: true, url: confirm_clothes_path) do |form| %>
@@ -28,7 +38,9 @@
         <% end %>
       <br>
       <%= form.submit t('view.confirm'), class: "btn btn-light" %>
+      <br>
+      <br>
+      <%= link_to t('view.back'), clothes_path,class: "btn btn-light" %>
     <% end %>
     <br>
 </div>
-<%= link_to t('view.back'), clothes_path,class: "btn btn-light" %>

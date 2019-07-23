@@ -38,3 +38,30 @@
   border-top: solid 5px #f5f5f5f5;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22); 
 }
+
+.clothe_show {
+  margin:0 auto;
+  text-align: center;
+  max-width: 1000px;
+  margin-bottom: 50px;
+  border-bottom: 2px solid rgba(0,0,0,.125);
+}
+
+// 詳細画面のコメントレイアウト
+.box16{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
+.box16 p {
+  margin: 0; 
+  padding: 0;
+}
+
+.box16.line-break {
+  text-align: center;
+  margin: auto;
+  width: 400px;
+  margin-bottom: 10px;
+}

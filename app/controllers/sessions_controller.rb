@@ -7,14 +7,12 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to clothes_path(user.id)
     else
-      flash[:danger] = 'Emailアドレス、パスワードをもう一度確認し実行してください。'
-      render 'new'
+      redirect_to new_session_path, notice: 'Emailアドレス、パスワードをもう一度確認し実行してください。'
     end
   end
 
   def destroy
     session.delete(:user_id)
-    flash[:notice] = 'ログアウトしました'
-    redirect_to new_session_path
+    redirect_to new_session_path, notice: 'ログアウトしました'
   end
 end

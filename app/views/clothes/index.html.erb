@@ -1,15 +1,15 @@
 <div id="search", style="text-align: center; margin-top: 260px;">
   <%= form_with(model: @clothe, method: :get, local: true, url: clothes_path) do |form| %>
-    <%= form.label :gender %>
+    <%= form.label :gender, t('view.gender') %>
     <%= form.select :gender, Clothe.genders.keys,include_blank: true,class: 'round' %>
     
-    <%= form.label :height %>
+    <%= form.label :height, t('view.height')%>
     <%= form.select :height, Clothe.heights.keys,include_blank: true,class: 'round' %>
   
-    <%= form.label :label, 'ラベル名' %>
+    <%= form.label :label, 'シーン' %>
     <%= form.select :label_id, Label.all.map {|t| t.content} ,include_blank: true, class: 'round' %>
     <%= form.hidden_field :search, value: 'true' %>
-    <%= form.submit "検索", class: "btn-default"%>
+    <%= form.submit t('view.search'), class: "btn-default"%>
   <% end %>
 </div>
 

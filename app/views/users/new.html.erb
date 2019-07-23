@@ -1,18 +1,18 @@
-<div class="container-fluid">
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h6><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h6>
-        <ul>
-        <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-        </ul>
-    </div>
-  <% end %>
 
   <section id = "signup" >
     <h2>Sign up</h2>
     <%= form_with(model: @user, local: true) do |f| %>
+      <div class="container-fluid">
+        <% if @user.errors.any? %>
+            <div id="error_explanation">
+             <h4><%= pluralize(@user.errors.count, "件") %>のエラーが発生しました。</h4>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+            </ul>
+      </div>
+    <% end %>
       <%= f.label :name %>
       <%= f.text_field :name , class: 'form-control' %>
       <%= f.label :email %>

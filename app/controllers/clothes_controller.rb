@@ -1,5 +1,7 @@
 class ClothesController < ApplicationController
   before_action :set_clothe, only: [:show, :edit, :update, :destroy]
+  skip_before_action :login_required, only: [:update, :index, :show]
+  before_action :ensure_correct_user, only: [:edit, :update,:destroy]
   PER = 12
   def new
     if params[:back]
@@ -63,5 +65,9 @@ class ClothesController < ApplicationController
   
   def set_clothe
     @clothe = Clothe.find(params[:id])
+  end
+
+  def ensure_correct_user
+    redirect_to clothes_path unless @clothe.user_id == current_user.id
   end
 end

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: [:new, :create]
+  before_action :logged_in, only: [:new]
   def new
     @user = User.new
   end
@@ -22,5 +24,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def logged_in
+    if logged_in?
+      redirect_to clothes_path
+    end
   end
 end

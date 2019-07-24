@@ -14,7 +14,7 @@ Label.create!(content: "スポーツ")
 Label.create!(content: "海遊び")
 Label.create!(content: "山遊び")
 Label.create!(content: "雪遊び")
-
+Label.create!(content: "その他")
 
 User.create!(
   email: 'test1@test.com',

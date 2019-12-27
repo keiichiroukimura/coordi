@@ -12,11 +12,14 @@
       </div>
 <% end %>
       <div class="clothes_image">
-        <%= form.file_field :image_first%>
+        <%= form.file_field :image_first %>
+        <%= form.hidden_field :image_first_cache %>
         <br>
         <%= form.file_field :image_second %>
+        <%= form.hidden_field :image_second_cache %>
         <br>
         <%= form.file_field :image_third %>
+        <%= form.hidden_field :image_third_cache %>
       </div>
       <div class="clothes_gender">
         <%= form.label :gender, t('view.gender') %>

@@ -2,7 +2,7 @@ class ClothesController < ApplicationController
   before_action :set_clothe, only: [:show, :edit, :update, :destroy]
   skip_before_action :login_required, only: [:update, :index, :show]
   before_action :ensure_correct_user, only: [:edit, :update,:destroy]
-  PER = 12
+  PER = 9
   def new
     if params[:back]
       @clothe = Clothe.new(clothe_params)

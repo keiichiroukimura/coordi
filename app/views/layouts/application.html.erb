@@ -23,21 +23,21 @@
         <p style="margin-left: 30px; color: white;">何着てどこいく？</p>
     
     <nav class="navbar navbar-expand-md  navbar-light bg-light">
-  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  
-  <div class="collapse navbar-collapse" id="bs-navi">
-    <ul class="navbar-nav">
-      <li style="margin-left: 30px;"><%= link_to "投稿一覧", clothes_path, class:"nav-link" %></li>
-    <% if logged_in? %>
-      <li style="margin-left: 30px;"><%= link_to "投稿作成", new_clothe_path, class:"nav-link" %></li>
-      <li style="margin-left: 30px;"><%= link_to "マイページ", user_path(current_user.id), class:"nav-link" %></li>
-      <li style="margin-left: 30px;"><%= link_to "いいね一覧", clothe_favorites_path(current_user.id), class:"nav-link" %></li>
-    <% end %>
-    </ul>
-  </div>
-</nav>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="bs-navi">
+        <ul class="navbar-nav">
+          <li style="margin-left: 30px;"><%= link_to "投稿一覧", clothes_path, class:"nav-link" %></li>
+        <% if logged_in? %>
+          <li style="margin-left: 30px;"><%= link_to "投稿作成", new_clothe_path, class:"nav-link" %></li>
+          <li style="margin-left: 30px;"><%= link_to "マイページ", user_path(current_user.id), class:"nav-link" %></li>
+          <li style="margin-left: 30px;"><%= link_to "いいね一覧", clothe_favorites_path(current_user.id), class:"nav-link" %></li>
+        <% end %>
+        </ul>
+      </div>
+    </nav>
+    
     </header>
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "#{key}") %>

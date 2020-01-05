@@ -82,3 +82,31 @@ div#error_explanation {
 .test {
   text-align: center;
 }
+
+.show {
+  margin-top: 0px;
+}
+
+@media (min-width: 768px){
+  .navbar-toggle {
+    display: none;
+  }
+}
+
+@media (min-width: 768px){
+  .navbar-collapse.collapse {
+      display: block!important;
+      height: auto!important;
+      padding-bottom: 0;
+      overflow: visible!important;
+  }
+}
+
+.bg-light {
+  background-color: #e8f9ec!important;
+  color: blackblack;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black;
+}
